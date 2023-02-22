@@ -16,9 +16,9 @@ def count_occurences(iterable):
 def remove_chars(string):
     """Function responsible for identifying various characters in a string, removing them, and returns the modified string"""
 
-    punc = r"""()?!"',#*.-;:"""
+    charset = r"""()?!"',#*.-;:%^&@[]{}|<>`~/\\=+"""
     for char in string:
-        if char in punc:
+        if char in charset:
             string = string.replace(char, " ")
     return string
 
@@ -28,7 +28,7 @@ def process_lines(lines):
     and returns a flat list of individual words.
     """
 
-    splits = map(lambda line: remove_chars(line).split(), lines)
+    splits = map(lambda line: remove_chars(line.rstrip()).split(), lines)
     words = [word.lower() for line in splits for word in line if len(word) > 2]
     return words
 
