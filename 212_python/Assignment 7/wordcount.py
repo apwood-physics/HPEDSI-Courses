@@ -5,7 +5,7 @@ import sys
 def count_occurences(iterable):
     """Function which counts frequency of items in an iterable obj, returns a tuple of the items and their counts."""
 
-    totals = {iterable: 0 for iterable in set(iterable)}
+    totals = {obj: 0 for obj in set(iterable)}
 
     for obj in iterable:
         totals[obj] += 1
